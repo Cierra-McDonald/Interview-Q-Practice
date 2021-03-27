@@ -22,6 +22,19 @@ const generateUserName = () => {
     return username;
 }
 
+const generatePassword = () => { 
+    const numberDictionary = NumberDictionary.generate({ min: 10, max: 1000});
+
+    let password = uniqueNamesGenerator({ 
+        dictionaries: [colors, numberDictionary, adjectives],
+        style: 'capital',
+        separator: '_',
+        length: 3
+    })
+    // console.log(password, 'password');
+    return password;
+}
+
 const generatePhoneNum = () => { 
     let minG1 = 100;
     let maxG1 = 999;
@@ -91,12 +104,9 @@ const generateCreditCard = () => {
     let g4 = Math.floor(Math.random() * (maxG4 - minG4 + 1)) + minG4;
 
     let creditCard = `${g1}${g2}${g3}${g4}`;
-    console.log(creditCard);
+    // console.log(creditCard);
     return creditCard;
 }
-
-
-
 
 
 module.exports = { 
@@ -105,5 +115,6 @@ module.exports = {
     generateDOB,
     generateSSC,
     generateUserName,
-    generateCreditCard
+    generateCreditCard,
+    generatePassword
 }
