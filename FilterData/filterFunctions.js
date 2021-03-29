@@ -49,12 +49,25 @@ const eighteenToThirty = (actualData) => {
     return ageGroup;
 };
 
-const findDuplicateNames = () => { 
-    let arrayOfNames = [];
-    
+const findDuplicateNames = (actualData) => { 
 
+    let duplicateNames = [];
+    duplicateNames = actualData.reduce(function (allNames, name) { 
+        if (name['c_name'] in allNames) { 
+            allNames[name['c_name']]++
+        } else { 
+            allNames[name['c_name']] = 1
+        }
+        return allNames
+    }, {});
+    
+    return duplicateNames;
+   
 
 };
+
+
+
 
 const findDuplicateBirthdays = () => { 
 

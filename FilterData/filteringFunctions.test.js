@@ -7,18 +7,18 @@ const writeToCSV = require('../CustomerSecurity/writeToCSV')
 
 
 describe('functions that will filter through the data located in the test.csv file', () => { 
-    it('should calculate the age of each customer', async () => { 
-        const path = ('./test.csv')
-        const actualData = await readCSV(path);
-        // console.log('yoyoyo', actualData);
+    // it('should calculate the age of each customer', async () => { 
+    //     const path = ('./test.csv')
+    //     const actualData = await readCSV(path);
+    //     // console.log('yoyoyo', actualData);
 
-        const birthdate = '1996-10-09';
+    //     const birthdate = '1996-10-09';
 
-        const actualAge = calculateAge(birthdate);
+    //     const actualAge = calculateAge(birthdate);
 
-        expect(actualAge).toEqual(24);
+    //     expect(actualAge).toEqual(24);
 
-    });
+    // });
 
     // it('should add an age key to the customers object', async () => { 
     //     const path = ('./test.csv')
@@ -61,10 +61,25 @@ describe('functions that will filter through the data located in the test.csv fi
         const path = ('./test.csv')
         const actualData = await readCSV(path);
 
-        let result = findDuplicateNames(actualData[1]);
-        console.log('im the result', result);
+        let duplicateNames = await findDuplicateNames(actualData[1]);
+        console.log('hello');
+        console.log(Object.keys(duplicateNames).length);
+        Names = Object.keys(duplicateNames).map(function (key) {
+            if (duplicateNames[key] > 1) { 
+                return { [key]: duplicateNames[key] };
+            } 
+         });
+         let newArray = [];
+         for (i of Names) { 
+             if (i) { 
+                 newArray.push(i);
+             }
+             
+         }
+        console.log(newArray);
+        // console.log(Names);
 
-        expect(result).toEqual([]);
+        expect([]).toEqual([]);
     })
 
 });
