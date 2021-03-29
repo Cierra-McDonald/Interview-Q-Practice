@@ -17,7 +17,6 @@ const addAgeToObject = (actualData) => {
     
 }
 
-
 const calculateAge = (dateString) => { 
     let today = new Date();
     // console.log(today, 'today');
@@ -36,13 +35,23 @@ const calculateAge = (dateString) => {
 
 };
 
-const eighteenToThirty = () => { 
-
-    return true;
-
+const eighteenToThirty = (actualData) => { 
+    let ageGroup = [];
+    
+    for (let i = 0; i < actualData.length; i++) { 
+       
+        if (actualData[i]['Age'] >= 18 && actualData[i]['Age'] <= 30) { 
+            ageGroup.push(actualData[i])
+        };
+    
+    }
+   
+    return ageGroup;
 };
 
 const findDuplicateNames = () => { 
+    let arrayOfNames = [];
+    
 
 
 };
