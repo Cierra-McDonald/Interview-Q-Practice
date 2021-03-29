@@ -1,33 +1,21 @@
+const writeToCSV = require("../CustomerSecurity/writeToCSV");
 
 const addAgeToObject = (actualData) => { 
-    // actualData = actualData[0];
-
-    // console.log('hellothere', actualData);
-    console.log(typeof actualData, 'heeerrr')
-   
+  
     for (let i = 0; i < actualData.length; i++) { 
         let personsBirthday = actualData[i]['DOB'];
-            console.log('person birthday', personsBirthday);
+            // console.log('person birthday', personsBirthday);
         let personsAge = calculateAge(personsBirthday);
-            console.log('person age', personsAge);
+            // console.log('person age', personsAge);
 
-        console.log(actualData[i]['Age'] = personsAge);
+        actualData[i]['Age'] = personsAge;
         
-
-        
-        // actualData[i] = ['Age'] = calculateAge(actualData.DOB);
     }
+    writeToCSV(actualData);
+
     return actualData;
     
-
 }
-
-
-// var result = arrOfObj.map(function(el) {
-//     var o = Object.assign({}, el);
-//     o.isActive = true;
-//     return o;
-//   })
 
 
 const calculateAge = (dateString) => { 
@@ -43,12 +31,14 @@ const calculateAge = (dateString) => {
     if ( moreSpecificDate < 0 || (moreSpecificDate === 0 && today.getDate < birthdate.getDate())) { 
         age--;
     }
-    console.log(age)
+    // console.log(age)
     return age;
 
 };
 
 const eighteenToThirty = () => { 
+
+    return true;
 
 };
 

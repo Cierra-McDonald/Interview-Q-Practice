@@ -162,18 +162,18 @@ describe('create a function that creates 10,000 customer objects', () => {
 
     });
 
-    it('should generate an object of customer objects and save to a csv file', async () => { 
+    // it('should generate an object of customer objects and save to a csv file', async () => { 
 
-        let arrayOfCustomers = [];
-        for (let i = 0; i < 10000; i++) { 
+    //     let arrayOfCustomers = [];
+    //     for (let i = 0; i < 10000; i++) { 
 
-            arrayOfCustomers.push(generateCustomerObj());  
-        }
+    //         arrayOfCustomers.push(generateCustomerObj());  
+    //     }
     
-       const result = await writeToCSV(arrayOfCustomers);
+    //    const result = await writeToCSV(arrayOfCustomers);
 
-        expect(result).toEqual(true); 
-    });
+    //     expect(result).toEqual(true); 
+    // });
 
     it('should read the csv file and return as json', async () => {
         let path = './test.csv'
